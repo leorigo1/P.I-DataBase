@@ -63,6 +63,6 @@ public class TestConfig implements CommandLineRunner {
         evento.setLocal("Dope");
         evento.setNome("Baile do DJ Peke");
         eventRepository.save(evento);
-        System.out.println("✅ Banco H2 inicializado com dados de exemplo!");
+        System.out.println("Banco H2 inicializado com dados de exemplo!");
     }
 }
