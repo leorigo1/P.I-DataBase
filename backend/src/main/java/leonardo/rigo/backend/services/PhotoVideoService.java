@@ -14,8 +14,8 @@ public class PhotoVideoService {
 	@Autowired
 	private PhotoVideoRepository photoVideoRepository;
 	
-	public void addPhotoVideo(PhotoVideo photovideo) {
-		photoVideoRepository.save(photovideo);
+	public PhotoVideo addPhotoVideo(PhotoVideo photovideo) {
+		return photoVideoRepository.save(photovideo);
 	}
 	
 	public List<PhotoVideo> ListPhotoVideo() {

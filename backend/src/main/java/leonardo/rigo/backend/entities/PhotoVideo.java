@@ -2,6 +2,7 @@ package leonardo.rigo.backend.entities;
 
 import java.time.LocalDateTime;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -27,7 +28,8 @@ public class PhotoVideo {
 	
 	
 	private String description;
-	private Integer likes;
+	@Column(nullable = false)
+	private Integer likes = 0;
 	
 
     @ManyToOne
