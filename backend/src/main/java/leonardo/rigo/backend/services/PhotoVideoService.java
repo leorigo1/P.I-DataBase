@@ -25,5 +25,4 @@ public class PhotoVideoService {
 	public void deletePhotoVideoById(Long id) {
 		photoVideoRepository.deleteById(id);
 	}
-	
 }

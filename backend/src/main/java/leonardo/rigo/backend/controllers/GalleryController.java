@@ -25,12 +25,12 @@ public class GalleryController {
 	@Autowired
 	private GalleryService galleryService;
 	
-	@PostMapping("/addGallery")
+	@PostMapping
 	public void postPhotoVideo(@RequestBody Long galleryId, PhotoVideo photoVideo) {
 		galleryService.addPhotoVideo(galleryId, photoVideo);
 	}
 	
-	@PutMapping("/editGallery/{galleryId}")
+	@PutMapping("{galleryId}")
 	public void editPhotoVideo(@PathVariable Long galleryId, Gallery gallery) {
 		galleryService.changeGalleryById(galleryId, gallery);
 	}
@@ -44,5 +44,4 @@ public class GalleryController {
 	public void deleteGalleriesById(@PathVariable Long id) {
 		galleryService.deleteById(id);
 	}
-	
 }
