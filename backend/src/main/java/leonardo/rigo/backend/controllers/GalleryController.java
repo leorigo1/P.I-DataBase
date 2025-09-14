@@ -1,9 +1,14 @@
 package leonardo.rigo.backend.controllers;
 
-import java.time.Instant;
+import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,14 +25,24 @@ public class GalleryController {
 	@Autowired
 	private GalleryService galleryService;
 	
-	@PostMapping("/addPublication")
+	@PostMapping("/addGallery")
 	public void postPhotoVideo(@RequestBody Long galleryId, PhotoVideo photoVideo) {
 		galleryService.addPhotoVideo(galleryId, photoVideo);
 	}
 	
-	@PostMapping("/editPublication")
-	public void editPhotoVideo(@RequestBody Long galleryId, Gallery gallery) {
+	@PutMapping("/editGallery/{galleryId}")
+	public void editPhotoVideo(@PathVariable Long galleryId, Gallery gallery) {
 		galleryService.changeGalleryById(galleryId, gallery);
+	}
+	
+	@GetMapping
+	public List<Gallery> listAllGalleries() {
+		return galleryService.listGalleries();
+	}
+	
+	@DeleteMapping("/{id}")
+	public void deleteGalleriesById(@PathVariable Long id) {
+		galleryService.deleteById(id);
 	}
 	
 }
