@@ -33,7 +33,8 @@ public class TestConfig implements CommandLineRunner {
         // 1️a Usuários
         User user1 = new User(null, "João", "joao@email.com", "123456");
         User user2 = new User(null, "Maria", "maria@email.com", "123456");
-        userRepository.saveAll(Arrays.asList(user1, user2));
+        User Adm = new User(null,"Leonardo Rigo","leonardo@email.com","adminstradormaster");
+        userRepository.saveAll(Arrays.asList(user1, user2,Adm));
 
         // 2️a Galeria
         Gallery gallery = new Gallery();
