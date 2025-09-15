@@ -39,6 +39,14 @@ public class User {
 		this.senha = senha;
 	}
 
+	public Roles getRole() {
+		return role;
+	}
+
+	public void setRole(Roles role) {
+		this.role = role;
+	}
+
 	public Long getId() {
 		return id;
 	}
@@ -70,6 +78,4 @@ public class User {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-	
-	
 }

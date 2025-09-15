@@ -13,6 +13,7 @@ import leonardo.rigo.backend.DTOs.LoginRequestDTO;
 import leonardo.rigo.backend.DTOs.RegisterRequestDTO;
 import leonardo.rigo.backend.DTOs.ResponseDTO;
 import leonardo.rigo.backend.entities.User;
+import leonardo.rigo.backend.enums.Roles;
 import leonardo.rigo.backend.repositories.UserRepository;
 import leonardo.rigo.backend.security.TokenService;
 import leonardo.rigo.backend.services.UserService;
@@ -60,6 +61,7 @@ public class AuthController {
 			newUser.setSenha(passwordEncoder.encode(body.senha()));
 			newUser.setEmail(body.email());
 			newUser.setName(body.name());
+			newUser.setRole(Roles.USUARIO);
 			this.userRepository.save(newUser);
 			
 			String token = this.tokenService.generateToken(newUser);
