@@ -13,3 +13,5 @@ Para fazer o post de uma Photo/Video é nescessário os seguintes campos JSON:
   "gallery": { "id": 1 }
   
 }
+
+
