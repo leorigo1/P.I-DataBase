@@ -51,15 +51,13 @@ public class SecurityConfig {
                 // Endpoints públicos
                 .requestMatchers(HttpMethod.POST, "/auth/login").permitAll()
                 .requestMatchers(HttpMethod.POST, "/auth/register").permitAll()
+                .requestMatchers(HttpMethod.POST,"/auth/login-google").permitAll()
                 .requestMatchers(
-                    "/h2-console/**",
+                    "/h2-console/**",          // banco de dados H2
                     "/swagger-ui/**",          // Swagger UI
                     "/v3/api-docs/**",         // OpenAPI Docs (necessário pro Swagger)
                     "/swagger-resources/**",   // Recursos do Swagger
-                    "/webjars/**",             // Dependências do Swagger
-                    "/users/login-google",
-                    "/auth/register",
-                    "/auth/login"
+                    "/webjars/**"              // Dependências do Swagger
                 ).permitAll()
                 // Todo o resto precisa de autenticação
                 .anyRequest().authenticated()
@@ -68,7 +66,6 @@ public class SecurityConfig {
 
         return http.build();
     }
-
 
     @Bean
     public PasswordEncoder passwordEncoder() {
