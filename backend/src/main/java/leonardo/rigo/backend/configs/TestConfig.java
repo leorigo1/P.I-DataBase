@@ -30,18 +30,18 @@ public class TestConfig implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        // 1️⃣ Usuários
+        // 1️a Usuários
         User user1 = new User(null, "João", "joao@email.com", "123456");
         User user2 = new User(null, "Maria", "maria@email.com", "123456");
         userRepository.saveAll(Arrays.asList(user1, user2));
 
-        // 2️⃣ Galeria
+        // 2️a Galeria
         Gallery gallery = new Gallery();
         gallery.setTitulo("Festa de aniversário");
         gallery.setDescription("Fotos do evento");
         galleryRepository.save(gallery);
         
-        // 3️⃣ Fotos/Vídeos
+        // 3️a Fotos/Vídeos
         PhotoVideo foto1 = new PhotoVideo();
         foto1.setUrl("http://example.com/foto1.jpg");
         foto1.setDataEnvio(LocalDateTime.now());
