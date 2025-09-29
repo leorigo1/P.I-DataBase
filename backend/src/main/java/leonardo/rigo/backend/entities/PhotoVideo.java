@@ -2,6 +2,9 @@ package leonardo.rigo.backend.entities;
 
 import java.time.LocalDateTime;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -31,9 +34,10 @@ public class PhotoVideo {
 	@Column(nullable = false)
 	private Integer likes = 0;
 	
-
+	@JsonIgnore
     @ManyToOne
     @JoinColumn(name = "gallery_id")
+	@JsonBackReference
 	private Gallery gallery;
 	
 	public PhotoVideo () {};

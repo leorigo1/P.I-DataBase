@@ -1,9 +1,9 @@
 package leonardo.rigo.backend.controllers;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,6 +20,7 @@ import leonardo.rigo.backend.services.GalleryService;
 
 @RestController
 @RequestMapping("/galleries")
+@CrossOrigin(origins = "*") 
 public class GalleryController {
 	
 	@Autowired
@@ -35,10 +36,16 @@ public class GalleryController {
 		galleryService.changeGalleryById(galleryId, gallery);
 	}
 	
-	@GetMapping
-	public List<Gallery> listAllGalleries() {
-		return galleryService.listGalleries();
+	@GetMapping("/{id}")
+	public Gallery getGallery(@PathVariable Long id) {
+	    return galleryService.findById(id).orElseThrow();
 	}
+	
+	@GetMapping()
+	public List<Gallery> getGallerybyId() {
+	    return galleryService.listGalleries();
+	    }
+	
 	
 	@DeleteMapping("/{id}")
 	public void deleteGalleriesById(@PathVariable Long id) {

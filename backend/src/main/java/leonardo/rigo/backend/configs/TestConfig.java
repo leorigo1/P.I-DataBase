@@ -44,13 +44,13 @@ public class TestConfig implements CommandLineRunner {
         
         // 3️a Fotos/Vídeos
         PhotoVideo foto1 = new PhotoVideo();
-        foto1.setUrl("http://example.com/foto1.jpg");
+        foto1.setUrl("https://i.ibb.co/1GX1wXDX/50-Imagens-e-Fotos-de-Macacos-sorrindo-primatas-babu-nos-Engra-ados.jpg");
         foto1.setDataEnvio(LocalDateTime.now());
         foto1.setUser(user1);
         foto1.setGallery(gallery);
 
         PhotoVideo foto2 = new PhotoVideo();
-        foto2.setUrl("http://example.com/video1.mp4");
+        foto2.setUrl("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQCOmPsstmko3MHpax6444mjeEM_E-5Cd60Q&s");
         foto2.setDataEnvio(LocalDateTime.now());
         foto2.setUser(user2);
         foto2.setGallery(gallery);
